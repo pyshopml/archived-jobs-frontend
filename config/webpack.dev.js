@@ -83,6 +83,22 @@ module.exports = function (options) {
       library: 'ac_[name]',
       libraryTarget: 'var',
     },
+	  module: {
+		  loaders: [
+			  {
+				  test: /\.ts$/,
+				  loader: 'awesome-typescript-loader'
+			  },
+			  {
+				  test: /\.ts?$/,
+				  loader: 'babel-loader',
+				  exclude: /node_modules/,
+				  query: {
+					  presets: ['es2015','stage-0']
+				  }
+			  },
+		  ]
+	  },
 
     plugins: [
 

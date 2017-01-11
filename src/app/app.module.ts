@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FirebaseModule, FirebaseApp } from './firebase';
-import { AuthService } from './services';
+import { AuthService } from './app.auth';
+import { MaterialModule } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 import {
   NgModule,
   ApplicationRef
@@ -23,12 +26,14 @@ import {
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 // App is our top level component
-import { AppComponent } from './app.component';
+import { AppComponent} from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { AuthService } from './app.service';
+import { ElementsModule } from './elements';
 import { HomeComponent } from './home';
 import { AuthComponent } from './auth';
+import { HeaderComponent, DialogContent } from './header';
+import { ProfileComponent } from './profile';
 import { NoContentComponent } from './no-content';
 
 // Application wide providers
@@ -52,17 +57,24 @@ type StoreType = {
   declarations: [
     AppComponent,
     AuthComponent,
+      HeaderComponent,
     HomeComponent,
+    ProfileComponent,
     NoContentComponent,
+    DialogContent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FirebaseModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    MaterialModule.forRoot(),
+    NgbModule.forRoot(),
+      //ElementsModule
   ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
+    entryComponents: [DialogContent],
+    providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
       AuthService

@@ -3,12 +3,15 @@
  */
 import {
   Component,
+    Optional,
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
 import {AuthService} from './app.auth';
+import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
 /*
+
  * App Component
  * Top Level Component
  */
@@ -20,28 +23,7 @@ import {AuthService} from './app.auth';
   ],
     providers: [AuthService],
   template: `
-    <nav class="header">
-      <span>
-        <a [routerLink]=" ['./home'] ">
-          Вакансии
-        </a>
-      </span>
-      |
-      <span>
-        <a [routerLink]=" ['./'] ">
-          Авторизация
-        </a>
-      </span>
-      <div class="status" *ngIf="auth.authenticated">Вы авторизованы</div>
-        <button
-            type="button"
-            (click)="logOut()"
-            *ngIf="auth.authenticated"
-            class="btn-logout"
-    >
-      Выйти
-    </button>
-    </nav>
+    <main-header></main-header>
 
     <main class="main">
       <router-outlet></router-outlet>
@@ -52,12 +34,22 @@ import {AuthService} from './app.auth';
 })
 export class AppComponent implements OnInit {
 
-  constructor(public appState: AppState,private auth: AuthService) {}
+  constructor(public appState: AppState, private auth: AuthService,public dialog: MdDialog) {
+      console.log('AppComponent-constructor')
+      console.log(this.auth)
+      console.log(this.auth.authState !== null)
+  }
 
   public ngOnInit() {
-      console.log(this.auth)
     console.log('Initial App State', this.appState.state);
+      console.log(this.auth)
+      console.log(this.auth.authState !== null)
   }
+
+    openDialog() {
+        let dialogRef = this.dialog.open(DialogContent);
+        //this.dialog.open();
+    }
 
     logOut(){
         console.log('logOut')
@@ -65,6 +57,22 @@ export class AppComponent implements OnInit {
 
     }
 
+}
+
+@Component({
+    template: `
+    <p>This is a dialog</p>
+    <p>
+      <label>
+        This is a text box inside of a dialog.
+        <input #dialogInput>
+      </label>
+    </p>
+    <p> <button md-button (click)="dialogRef.close(dialogInput.value)">CLOSE</button> </p>
+  `,
+})
+export class DialogContent {
+    constructor(@Optional() public dialogRef: MdDialogRef<DialogContent>) { }
 }
 
 /*

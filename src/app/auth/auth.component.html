@@ -1,7 +1,12 @@
 <h1>Авторизация</h1>
-
 <div>
 	<form>
+		<input
+				type="text"
+				[(ngModel)]="user.name"
+				name="name"
+				placeholder="Имя"
+		>
 		<input
 				type="text"
 				[(ngModel)]="user.login"

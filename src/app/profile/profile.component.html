@@ -1,0 +1,24 @@
+<h1>Редактирование аккаунта</h1>
+<span *ngIf="auth.success">Сохранено</span>
+
+<div>
+	<form>
+		<label for="name">Имя: </label>
+
+		<input
+				type="text"
+				name="name"
+				id="name"
+				placeholder="Имя"
+				[(ngModel)]="profile.name"
+		>
+
+		<button
+				type="button"
+				(click)="save()"
+		>
+			Сохранить
+		</button>
+
+	</form>
+</div>

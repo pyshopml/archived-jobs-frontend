@@ -16,7 +16,8 @@ export class AuthComponent implements OnInit {
 
     user = {
         login: '',
-        pass: ''
+        pass: '',
+        name:''
     };
 
     constructor(private auth:AuthService) {
@@ -30,14 +31,29 @@ export class AuthComponent implements OnInit {
     signIn():void {
         console.log('signIn')
         console.log(this.user)
-        this.auth.signIn(this.user.login, this.user.pass)
+        const login: any = this.user.login.trim(),
+            pass: any = this.user.pass.trim();
+
+        if (login.length && pass.length) {
+            this.auth.signIn(login, pass)
+        }
     }
 
-    signUp():void {
+   /* signUp():void {
         console.log('signUp')
         console.log(this.user)
-        this.auth.signUp(this.user.login, this.user.pass)
-    }
+
+        const login: any = this.user.login.trim(),
+            pass: any = this.user.pass.trim(),
+            name: any = this.user.name.trim();
+
+        if (login.length && pass.length && name.length) {
+            this.auth.signUp(login, pass)
+            this.auth.updateProfile(name)
+        }
+
+
+    }*/
 
     logOut():void {
         console.log('logOut')
