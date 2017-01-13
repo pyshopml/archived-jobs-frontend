@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AppRoutingModule } from './app-routing.module'
+import { VacanciesService } from './services/vacancies.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { AppRoutingModule } from './app-routing.module'
     
     InMemoryWebApiModule.forRoot(InMemoryDataService), // backend substitution
   ],
-  providers: [],
+  providers: [
+    VacanciesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
