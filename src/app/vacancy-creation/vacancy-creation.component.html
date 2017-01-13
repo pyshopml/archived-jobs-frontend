@@ -1,0 +1,27 @@
+<div class="vacancy_creation">
+  <h2>Создание вакансии</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="vacancyForm">
+    <div>
+      <input formControlName="title"
+             type="text"
+             placeholder="Заголовок"
+             #titleRef>
+      <b [hidden]="titleRef.classList.contains('ng-valid') ||
+                 titleRef.classList.contains('ng-pristine')">
+        invalid title
+      </b>
+    </div>
+    <div>
+      <textarea formControlName="description"
+                placeholder="Описание"
+                #descriptionRef></textarea>
+      <b [hidden]="descriptionRef.classList.contains('ng-valid') ||
+                 descriptionRef.classList.contains('ng-pristine')">
+        invalid description
+      </b>
+    </div>
+    <button type="submit" [disabled]="vacancyForm._status == 'INVALID'">
+      Создать
+    </button>
+  </form>
+</div>
