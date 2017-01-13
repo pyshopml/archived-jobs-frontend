@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// backend substitution
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
+
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -18,6 +22,8 @@ import { AppRoutingModule } from './app-routing.module'
     FormsModule,
     HttpModule,
     AppRoutingModule
+    
+    InMemoryWebApiModule.forRoot(InMemoryDataService), // backend substitution
   ],
   providers: [],
   bootstrap: [AppComponent]
