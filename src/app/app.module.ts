@@ -10,6 +10,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { VacanciesComponent } from './vacancies/vacancies.component';
+import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
 
 import { AppRoutingModule } from './app-routing.module'
 import { VacanciesService } from './services/vacancies.service';
@@ -21,6 +22,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     NotFoundComponent,
     VacanciesComponent,
+    VacancyDetailComponent,
     HeaderComponent,
     HomeComponent
   ],
