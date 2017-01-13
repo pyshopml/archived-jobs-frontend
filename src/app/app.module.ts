@@ -13,12 +13,14 @@ import { VacanciesComponent } from './vacancies/vacancies.component';
 
 import { AppRoutingModule } from './app-routing.module'
 import { VacanciesService } from './services/vacancies.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
     VacanciesComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
