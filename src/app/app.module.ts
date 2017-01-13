@@ -14,6 +14,7 @@ import { VacanciesComponent } from './vacancies/vacancies.component';
 import { AppRoutingModule } from './app-routing.module'
 import { VacanciesService } from './services/vacancies.service';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
     NotFoundComponent,
     VacanciesComponent,
     HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
