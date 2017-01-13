@@ -9,6 +9,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { VacanciesComponent } from './vacancies/vacancies.component';
 
 import { AppRoutingModule } from './app-routing.module'
 import { VacanciesService } from './services/vacancies.service';
@@ -17,6 +18,7 @@ import { VacanciesService } from './services/vacancies.service';
   declarations: [
     AppComponent,
     NotFoundComponent
+    VacanciesComponent,
   ],
   imports: [
     BrowserModule,

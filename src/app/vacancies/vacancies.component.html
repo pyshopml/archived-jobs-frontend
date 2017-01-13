@@ -1,0 +1,10 @@
+<h2>Вакансии</h2>
+<ul class="vacancies">
+  <li class="vacancy" *ngFor="let vacancy of vacancies">
+    <a [routerLink]="['/vacancy', vacancy.id]">
+      <b>{{vacancy.title}}</b>
+    </a>
+    <span>Дата создания {{vacancy.date}}</span>
+    <span>Дата редактирования {{vacancy.dateOfEditing}}</span>
+  </li>
+</ul>
