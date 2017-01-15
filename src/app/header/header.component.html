@@ -1,0 +1,107 @@
+<nav class="header container-fluid">
+
+		<div class="header__link">
+				<span>
+					<a [routerLink]=" ['./'] ">
+						Вакансии
+					</a>
+				</span>
+		</div>
+
+		<div class="header__auth auth-btns ">
+
+				<!--<div class="auth-btns__item">
+					<button (click)="signUp(contentModal)" class=" btn btn-primary" type="button"> Зарегистрироваться</button>
+				</div>
+
+				<div class="auth-btns__item">
+					<button (click)="signIn(contentModal)" class="btn btn-primary" type="button">Войти</button>
+				</div>-->
+
+			<button md-button [mdMenuTriggerFor]="menu">Аккаунт</button>
+
+			<md-menu #menu="mdMenu">
+				<button (click)="signUp(contentModal)" md-menu-item>Зарегистрироваться</button>
+				<button (click)="signIn(contentModal)" md-menu-item>Войти</button>
+			</md-menu>
+		</div>
+
+		<template #contentModal let-c="close" let-d="dismiss">
+
+			<div class="modal-header">
+				<h4 class="modal-title">Авторизация</h4>
+
+				<button type="button" class="close" aria-label="Close" (click)="d()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+
+			</div>
+
+			<div class="modal-body">
+
+				<form [formGroup]="form" (ngSubmit)="doLogin($event)">
+
+					<div *ngIf="!updatePassModal">
+
+						<div class="form-group" *ngIf="signUpModal">
+							<input formControlName="name" type="text" class="form-control" aria-describedby="emailHelp"
+							       placeholder="Имя">
+						</div>
+
+						<div class="form-group">
+							<input formControlName="login" type="email" class="form-control" aria-describedby="emailHelp"
+							       placeholder="Адрес электронной почты">
+						</div>
+
+						<div class="form-group">
+							<input formControlName="pass" type="password" class="form-control" placeholder="Пароль">
+						</div>
+
+						<a href="#" (click)="updatePass($event)">Восстановить пароль</a>
+
+					</div>
+
+					<div *ngIf="updatePassModal">
+
+						<div class="form-group">
+							<input type="email" class="form-control" aria-describedby="emailHelp"
+							       placeholder="Адрес электронной почты">
+						</div>
+
+					</div>
+
+					<div class="col-sm-12">
+						<button class="btn btn-primary" type="submit">{{textSubmit}}</button>
+					</div>
+
+				</form>
+
+				<div>{{error}}</div>
+
+
+			</div>
+
+		</template>
+
+		<template ngbModalContainer></template>
+
+
+		<div class="header__info" *ngIf="auth.authenticated">
+
+			<div class="status">Здравствуйте, {{auth.name || auth.getDisplayName}}</div>
+
+			<button md-raised-button
+			        type="button"
+			        (click)="logOut()"
+			        class="btn-logout"
+			>Выйти
+			</button>
+
+			<button md-button [mdMenuTriggerFor]="menu">Профиль пользователя</button>
+
+			<md-menu #menu="mdMenu">
+				<button [routerLink]=" ['./profile'] " md-menu-item>Настройки</button>
+			</md-menu>
+		</div>
+
+</nav>

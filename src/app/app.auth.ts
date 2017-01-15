@@ -11,12 +11,12 @@ import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class AuthService {
-    private authState:FirebaseAuthState = null;
+	public authState:FirebaseAuthState = null;
 
 
-	private modalContentSource = new Subject<string>();
-    private displayName = new Subject<string>();
-	private name :string;
+	public modalContentSource = new Subject<string>();
+    public displayName = new Subject<string>();
+	public name :string;
 
 	modalContent$ = this.modalContentSource.asObservable();
 	displayName$ = this.displayName.asObservable();
@@ -26,43 +26,27 @@ export class AuthService {
 		this.modalContentSource.next(content);
 	}
 
-
-
-
-
     constructor(public auth$:FirebaseAuth){
-    console.log('AuthService')
-    auth$.subscribe((state:FirebaseAuthState) => {
+	    console.log('AuthService')
+	    auth$.subscribe((state:FirebaseAuthState) => {
 
-        this.authState = state;
+	        this.authState = state;
 
-    });
-}
-
-
-
-
-
+	    });
+	}
     get authenticated():boolean {
 
         return this.authState !== null;
     }
 
-
-
-
-
-
     get id():string {
         return this.authenticated ? this.authState.uid : '';
     }
 
-		get getDisplayName():string {
-			return this.authState.auth.displayName;
+	get getDisplayName():string {
+		return this.authState.auth.displayName;
 
-		}
-
-
+	}
 
     signUp(email:string, password:string, name:string):firebase.Promise<FirebaseAuthState> {
         var creds:any = {email: email, password: password};
@@ -105,10 +89,6 @@ export class AuthService {
 
 
 	logOut():void {
-        this.auth$.logout();
-    }
-
-    signOut():void {
         this.auth$.logout();
     }
 }

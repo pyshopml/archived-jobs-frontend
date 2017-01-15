@@ -32,7 +32,7 @@ import { AppState, InternalStateType } from './app.service';
 import { ElementsModule } from './elements';
 import { HomeComponent } from './home';
 import { AuthComponent } from './auth';
-import { HeaderComponent, DialogContent } from './header';
+import { HeaderComponent } from './header';
 import { ProfileComponent } from './profile';
 import { NoContentComponent } from './no-content';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -65,7 +65,7 @@ type StoreType = {
     HomeComponent,
     ProfileComponent,
     NoContentComponent,
-    DialogContent
+    //DialogContent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -79,7 +79,7 @@ type StoreType = {
     NgbModule.forRoot(),
       //ElementsModule
   ],
-    entryComponents: [DialogContent],
+    //entryComponents: [DialogContent],
     providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,

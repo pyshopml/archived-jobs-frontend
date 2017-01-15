@@ -23,115 +23,8 @@ import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms'
 		'./header.component.css'
 	],
 	providers: [AuthService, NgbActiveModal, FormBuilder],
-	template: `
-    <nav class="header">
-	    <div class="header__link">
-			<span>
-				<a [routerLink]=" ['./'] ">
-					Вакансии
-				</a>
-			</span>
-		</div>
+	templateUrl: './header.component.html'
 
-
-
-
-      <div class="header__auth auth-btns">
-
-			  <div class="col-sm-12">
-			    <button (click)="signUp(contentModal)" class=" btn btn-primary" type="button" > Зарегистрироваться</button>
-			  </div>
-
-			  <div class="col-sm-12">
-			    <button (click)="signIn(contentModal)" class="btn btn-primary" type="button">Войти</button>
-			  </div>
-
-			</div>
-
-			 <template #contentModal  let-c="close" let-d="dismiss">
-				  <div class="modal-header">
-				    <h4 class="modal-title">Авторизация</h4>
-
-				    <button type="button" class="close" aria-label="Close" (click)="d()">
-				      <span aria-hidden="true">&times;</span>
-				    </button>
-
-				  </div>
-				  <div class="modal-body">
-
-				        <form [formGroup]="form" (ngSubmit)="doLogin($event)">
-
-				          <div  *ngIf="!updatePassModal">
-
-				            <div class="form-group" *ngIf="signUpModal">
-									    <input  formControlName="name" type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Имя">
-									  </div>
-
-									  <div class="form-group">
-									    <input formControlName="login" type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Адрес электронной почты">
-									  </div>
-
-									  <div class="form-group">
-									    <input formControlName="pass" type="password" class="form-control"  placeholder="Пароль">
-									  </div>
-
-							      <a href="#" (click)="updatePass($event)">Восстановить пароль</a>
-
-						      </div>
-
-						      <div *ngIf="updatePassModal">
-
-							       <div class="form-group">
-										    <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Адрес электронной почты">
-										  </div>
-
-						      </div>
-
-						      <div class="col-sm-12">
-							        <button   class="btn btn-primary" type="submit">{{textSubmit}}</button>
-						      </div>
-
-					      </form>
-					      <div *ngIf="!error">{{error}}</div>
-
-
-				  </div>
-
-				</template>
-				<template ngbModalContainer></template>
-
-
-      <div class="info" *ngIf="auth.authenticated">
-          <div  class="status">Здравствуйте, {{auth.name || auth.getDisplayName}}</div>
-
-            <button md-raised-button
-                type="button"
-                (click)="logOut()"
-                class="btn-logout"
-            >
-            Выйти
-            </button>
-
-            <button md-button [mdMenuTriggerFor]="menu">Профиль пользователя</button>
-
-            <md-menu #menu="mdMenu">
-              <button [routerLink]=" ['./profile'] " md-menu-item>Настройки</button>
-
-            </md-menu>
-
-
-        <!--    <a [routerLink]=" ['./profile'] "
-                type="button"
-                class="btn-logout"
-            >
-              Настройки
-            </a>-->
-
-      </div>
-
-
-    </nav>
-  `
 })
 export class HeaderComponent implements OnInit {
 
@@ -146,9 +39,11 @@ export class HeaderComponent implements OnInit {
 
 	form:FormGroup;
 
-	constructor(private auth:AuthService, public dialog:MdDialog, private modalService:NgbModal, private fb:FormBuilder) {
-		console.log('HeaderComponent')
-		console.log(ModalDismissReasons)
+	constructor(
+		private auth:AuthService,
+        public dialog:MdDialog,
+        private modalService:NgbModal,
+        private fb:FormBuilder) {
 
 		this.form = fb.group({
 			name: '',
@@ -171,21 +66,23 @@ export class HeaderComponent implements OnInit {
 				console.log('modal');
 				console.log(modal);
 
-				switch (modal) {
-					case 'signUp':
-						return this.signUpModal = true;
-
-					case 'signIn':
-						return this.signInModal = true;
-
-					case 'updatePass':
-						return this.updatePassModal = true;
-
-				}
-
+				this.switchModal(modal)
 			});
+	}
 
+	switchModal(modal){
 
+		switch (modal) {
+			case 'signUp':
+				return this.signUpModal = true;
+
+			case 'signIn':
+				return this.signInModal = true;
+
+			case 'updatePass':
+				return this.updatePassModal = true;
+
+		}
 	}
 
 	resetModal() {
