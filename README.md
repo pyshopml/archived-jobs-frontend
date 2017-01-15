@@ -1,6 +1,6 @@
-
+# Запуск шаблона
 # npm i
-# npm run server
+# npm start
 
 <p align="center">
   <a href="http://courses.angularclass.com/courses/angular-2-fundamentals?utm_source=github-angular2-webpack-starter&utm_medium=open-source&utm_campaign=webpackstarter" target="_blank">

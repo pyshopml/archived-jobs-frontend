@@ -93,8 +93,7 @@
     "lodash": "^4.17.4",
     "reflect-metadata": "^0.1.9",
     "rx": "^4.1.0",
-    "rxjs": "~5.0.2",
-    "zone.js": "~0.7.4"
+    "rxjs": "~5.0.2"
   },
   "devDependencies": {
     "@angular/compiler-cli": "~2.4.1",

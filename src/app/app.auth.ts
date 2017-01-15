@@ -1,4 +1,4 @@
-import { Injectable,EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { AuthProviders, AuthMethods, FirebaseAuth, FirebaseAuthState, AngularFire } from 'angularfire2';
 import _ from "lodash";
 
