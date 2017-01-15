@@ -2,10 +2,11 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import {AuthService} from '../app.auth';
 
 @Injectable()
 export class DataResolver implements Resolve<any> {
-  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot,AuthService:AuthService) {
     return Observable.of({ res: 'I am data'});
   }
 }

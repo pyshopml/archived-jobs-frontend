@@ -1,3 +1,13 @@
 .btns-auth{
     padding:10px 0;
 }
+
+.header__link{
+     float: left;
+ }
+
+.header__auth{
+    float: left;
+    margin:0 12px;
+}
+

@@ -7,8 +7,7 @@ import { NoContentComponent } from './no-content';
 import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
-  { path: '',      component: AuthComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '',      component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '**',    component: NoContentComponent },
 ];

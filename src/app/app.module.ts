@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FirebaseModule, FirebaseApp } from './firebase';
 import { AuthService } from './app.auth';
@@ -35,6 +35,10 @@ import { AuthComponent } from './auth';
 import { HeaderComponent, DialogContent } from './header';
 import { ProfileComponent } from './profile';
 import { NoContentComponent } from './no-content';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import { CommonModule } from '@angular/common';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -67,6 +71,8 @@ type StoreType = {
     BrowserModule,
     FirebaseModule,
     FormsModule,
+	  CommonModule,
+	  ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
     MaterialModule.forRoot(),

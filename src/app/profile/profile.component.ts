@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
     }
 
     profile = {
-        name:this.auth.displayName
+        name:this.auth.getDisplayName
     };
 
     public ngOnInit() {
@@ -27,8 +27,11 @@ export class ProfileComponent implements OnInit {
 
     public save(){
         console.log('save');
+	    console.log(this.profile.name)
         this.auth.updateProfile(this.profile.name)
+
         console.log('this.auth.displayName')
+
         console.log(this.auth.displayName)
     }
 }
