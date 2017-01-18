@@ -2,4 +2,5 @@
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 body{
   margin: 0;
+  background-color: #fafafa;
 }
