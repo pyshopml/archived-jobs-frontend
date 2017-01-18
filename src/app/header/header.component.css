@@ -1,3 +1,6 @@
-.header a.active{
-  color: black;
+.app-header__space{
+  flex: 1 1 auto;
+}
+.app-header__logo{
+  color: #fafafa;
 }

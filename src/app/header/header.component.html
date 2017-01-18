@@ -1,13 +1,22 @@
-<nav class="header">
-  <a [routerLink]="['/']"
-     [routerLinkActive]="'active'"
-     [routerLinkActiveOptions]="{exact: true}">
-    Домашняя страница
-  </a>
-  <a [routerLink]="['/vacancies']" [routerLinkActive]="'active'">
-    Вакансии
-  </a>
-  <a [routerLink]="['/new']" [routerLinkActive]="'active'">
-    Создать вакансию
-  </a>
-</nav>
+<md-toolbar color="accent" class="header">
+  <md-icon class="app-header__logo">rowing</md-icon>
+  <span class="app-header__space"></span>
+  <nav class="app-header__nav">
+    <a md-raised-button
+       [routerLink]="['/']"
+       [routerLinkActive]="'active'"
+       [routerLinkActiveOptions]="{exact: true}">
+      Домашняя страница
+    </a>
+    <a md-raised-button
+       [routerLink]="['/vacancies']"
+       [routerLinkActive]="'active'">
+      Вакансии
+    </a>
+    <a md-raised-button
+       [routerLink]="['/new']"
+       [routerLinkActive]="'active'">
+      Создать вакансию
+    </a>
+  </nav>
+</md-toolbar>
