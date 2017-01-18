@@ -8,7 +8,7 @@ import { ActivatedRoute, Params }   from '@angular/router';
 @Component({
   selector: 'app-vacancy-detail',
   templateUrl: './vacancy-detail.component.html',
-  styleUrls: ['./vacancy-detail.component.css']
+  styleUrls: ['./vacancy-detail.component.styl']
 })
 export class VacancyDetailComponent implements  OnInit {
   vacancy: Vacancy;

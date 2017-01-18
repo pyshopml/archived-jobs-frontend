@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-vacancy-creation',
   templateUrl: './vacancy-creation.component.html',
-  styleUrls: ['./vacancy-creation.component.css'],
+  styleUrls: ['./vacancy-creation.component.styl'],
   providers: [FormBuilder]
 })
 export class VacancyCreationComponent {

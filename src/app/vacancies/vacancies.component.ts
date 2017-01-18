@@ -6,7 +6,7 @@ import { Vacancy } from '../vacancy';
 @Component({
   selector: 'app-vacancies',
   templateUrl: './vacancies.component.html',
-  styleUrls: ['./vacancies.component.css']
+  styleUrls: ['./vacancies.component.styl']
 })
 export class VacanciesComponent implements OnInit {
   vacancies: Vacancy[];
