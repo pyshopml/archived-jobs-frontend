@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { VacanciesService } from '../services/vacancies.service';
-import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vacancy-creation',
@@ -13,14 +13,17 @@ import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms'
 export class VacancyCreationComponent {
   public vacancyForm = this.fb.group({
     // validation
-    title: ['', [Validators.minLength(6), Validators.required]],
-    description: ['', Validators.required]
+    title: ['', [Validators.minLength(3), Validators.required]],
+    description: ['', [
+      Validators.maxLength(2000),
+      Validators.minLength(3),
+      Validators.required]
+    ]
   });
   @ViewChild('titleRef') titleRef;
   @ViewChild('descriptionRef') descriptionRef;
 
   constructor(
-    private router: Router,
     private vacanciesService: VacanciesService,
     private fb: FormBuilder
   ) {}

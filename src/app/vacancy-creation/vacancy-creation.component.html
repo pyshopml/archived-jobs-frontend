@@ -1,27 +1,43 @@
-<div class="vacancy_creation">
-  <h2>Создание вакансии</h2>
-  <form (ngSubmit)="onSubmit()" [formGroup]="vacancyForm">
-    <div>
-      <input formControlName="title"
+<md-card class="app-vacancy-creation__form-wrap">
+  <md-card-title class="app-vacancy-creation__title">
+    Создание вакансии
+  </md-card-title>
+
+  <form class="app-vacancy-creation__form"
+        (ngSubmit)="onSubmit()"
+        [formGroup]="vacancyForm">
+
+    <md-input-container class="app-vacancy-creation__title-wrap">
+      <input md-input
+             formControlName="title"
              type="text"
              placeholder="Заголовок"
              #titleRef>
-      <b [hidden]="titleRef.classList.contains('ng-valid') ||
+    </md-input-container>
+    <!-- [hidden]="titleRef.classList.contains('ng-valid') ||
                  titleRef.classList.contains('ng-pristine')">
-        invalid title
-      </b>
-    </div>
-    <div>
-      <textarea formControlName="description"
-                placeholder="Описание"
-                #descriptionRef></textarea>
-      <b [hidden]="descriptionRef.classList.contains('ng-valid') ||
-                 descriptionRef.classList.contains('ng-pristine')">
-        invalid description
-      </b>
-    </div>
-    <button type="submit" [disabled]="vacancyForm._status == 'INVALID'">
-      Создать
+      invalid title
+    </-->
+
+    <md-input-container class="app-vacancy-creation__description-wrap">
+        <textarea md-input
+                  rows="10"
+                  formControlName="description"
+                  placeholder="Описание"
+                  #descriptionRef>
+        </textarea>
+        <md-hint align="end">
+          {{descriptionRef.value.length}} / 2000
+        </md-hint>
+    </md-input-container>
+
+    <button md-mini-fab
+            class="app-vacancy-creation__submit"
+            type="submit"
+            color="accent"
+            [disabled]="vacancyForm._status == 'INVALID'">
+      <md-icon>check</md-icon>
     </button>
+
   </form>
-</div>
+</md-card>
