@@ -4,3 +4,10 @@ body{
   margin: 0;
   background-color: #fafafa;
 }
+a{
+  color: inherit;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
