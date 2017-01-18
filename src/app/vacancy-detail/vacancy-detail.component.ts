@@ -1,4 +1,4 @@
-import { Component, OnInit, Type } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { VacanciesService } from '../services/vacancies.service';
 import { Vacancy } from '../vacancy';
@@ -19,7 +19,7 @@ export class VacancyDetailComponent implements  OnInit {
   ngOnInit() {
     // get vacancy by id url parameter and assign it to a variable
     this.route.params
-      .subscribe(params => {
+      .subscribe((params: Params) => {
         this.vacanciesService.getVacancy(+params['id'])
           .then(vacancy => this.vacancy = vacancy);
       });

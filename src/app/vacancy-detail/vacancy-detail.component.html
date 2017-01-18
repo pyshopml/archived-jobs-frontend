@@ -1,6 +1,8 @@
-<div class="vacancy_detail">
-  <h3>{{vacancy?.title}}</h3>
-  <pre>{{vacancy?.description}}</pre>
-  <span>Дата создания {{vacancy?.date}}</span>
-  <span>Дата редактирования {{vacancy?.dateOfEditing}}</span>
-</div>
+<app-loading *ngIf="!vacancy"></app-loading>
+<md-card class="app-vacancy-detail__content"
+         *ngIf="vacancy">
+  <md-card-title>{{vacancy.title}}</md-card-title>
+  <pre>{{vacancy.description}}</pre>
+  <span>Дата создания {{vacancy.date}}</span>
+  <span>Дата редактирования {{vacancy.dateOfEditing}}</span>
+</md-card>
