@@ -1,10 +1,16 @@
-<h2>Вакансии</h2>
-<ul class="vacancies">
-  <li class="vacancy" *ngFor="let vacancy of vacancies">
-    <a [routerLink]="['/vacancy', vacancy.id]">
-      <b>{{vacancy.title}}</b>
+<app-loading *ngIf="!vacancies"></app-loading>
+<md-card *ngIf="vacancies"
+         class="app-vacancies__content">
+
+  <div class="app-vacancies__vacancy"
+       *ngFor="let vacancy of vacancies">
+    <a class="app-vacancies__vacancy-title"
+       [routerLink]="['/vacancy', vacancy.id]">
+      {{vacancy.title}}
     </a>
-    <span>Дата создания {{vacancy.date}}</span>
-    <span>Дата редактирования {{vacancy.dateOfEditing}}</span>
-  </li>
-</ul>
+    <span class="app-vacancies__vacancy-date">
+      {{vacancy.date}}
+    </span>
+  </div>
+
+</md-card>

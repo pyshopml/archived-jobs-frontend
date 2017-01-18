@@ -12,7 +12,6 @@ export class VacanciesComponent implements OnInit {
   vacancies: Vacancy[];
   constructor( private vacanciesService: VacanciesService ) {}
   ngOnInit() {
-    const self = this;
     this.vacanciesService.getVacancies().then(vacancies => this.vacancies = vacancies);
   }
 }
