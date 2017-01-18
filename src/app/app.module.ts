@@ -20,6 +20,7 @@ import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.componen
 import { VacanciesService } from './services/vacancies.service';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     VacancyCreationComponent,
     VacancyDetailComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
