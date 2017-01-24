@@ -48,6 +48,8 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.4.0",
     "ts-loader": "^2.0.0",
     "ts-node": "1.2.1",
     "tslint": "^4.0.2",
