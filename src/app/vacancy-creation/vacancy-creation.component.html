@@ -11,23 +11,17 @@
       <input md-input
              formControlName="title"
              type="text"
-             placeholder="Заголовок"
-             #titleRef>
+             placeholder="Заголовок">
     </md-input-container>
-    <!-- [hidden]="titleRef.classList.contains('ng-valid') ||
-                 titleRef.classList.contains('ng-pristine')">
-      invalid title
-    </-->
 
     <md-input-container class="app-vacancy-creation__description-wrap">
         <textarea md-input
                   rows="10"
                   formControlName="description"
-                  placeholder="Описание"
-                  #descriptionRef>
+                  placeholder="Описание">
         </textarea>
         <md-hint align="end">
-          {{descriptionRef.value.length}} / 2000
+          {{vacancyForm.value.description.length}} / 2000
         </md-hint>
     </md-input-container>
 

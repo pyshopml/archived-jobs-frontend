@@ -1,12 +1,9 @@
-import './polyfills.ts';
-
+import './styles.styl';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { environment } from './environments/environment';
 import { AppModule } from './app/app.module';
 
-if (environment.production) {
+if (NODE_ENV === 'production') {
   enableProdMode();
 }
-
 platformBrowserDynamic().bootstrapModule(AppModule);

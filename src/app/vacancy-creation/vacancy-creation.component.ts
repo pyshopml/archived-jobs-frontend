@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Router } from '@angular/router';
 import { VacanciesService } from '../services/vacancies.service';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -20,8 +19,6 @@ export class VacancyCreationComponent {
       Validators.required]
     ]
   });
-  @ViewChild('titleRef') titleRef;
-  @ViewChild('descriptionRef') descriptionRef;
 
   constructor(
     private vacanciesService: VacanciesService,
@@ -33,8 +30,8 @@ export class VacancyCreationComponent {
     this.vacanciesService.addVacancy(
       {
         id: null,
-        title: <string>this.titleRef.nativeElement.value,
-        description: <string>this.descriptionRef.nativeElement.value
+        title: this.vacancyForm.value.title,
+        description: this.vacancyForm.value.description
       }
     ).catch(err => { throw err; });
   }

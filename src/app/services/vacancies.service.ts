@@ -11,8 +11,8 @@ export class VacanciesService {
     // returns list of vacancies
     return this.http.get('/api/VACANCIES')
       .toPromise()
-      .then(function(response){
-        return response.json().data.map(item => new Vacancy(item));
+      .then((response) => {
+        return response.json().data.map((item: Object) => new Vacancy(item));
       });
   }
   getVacancy(id: number): Promise<any> {
@@ -22,7 +22,7 @@ export class VacanciesService {
       .then( response => new Vacancy( response.json().data) );
   }
   addVacancy(vacancy: INewVacancy): Promise<any> {
-    return this.getVacancies().then(function(items){
+    return this.getVacancies().then((items: Vacancy[]) => {
       //
       vacancy.id = items.length + 1;
       const headers = new Headers({
@@ -32,6 +32,6 @@ export class VacanciesService {
         .post('/api/VACANCIES/', JSON.stringify((vacancy)), { headers: headers })
         .toPromise();
       //
-    }.bind(this));
+    });
   }
 }

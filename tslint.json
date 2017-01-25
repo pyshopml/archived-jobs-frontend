@@ -15,6 +15,11 @@
       true,
       "spaces"
     ],
+    "only-arrow-functions": [
+      true,
+      "allow-declarations",
+      "allow-named-functions"
+    ],
     "label-position": true,
     "max-line-length": [
       true,

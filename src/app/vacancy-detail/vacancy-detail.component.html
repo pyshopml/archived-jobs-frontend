@@ -3,6 +3,6 @@
          *ngIf="vacancy">
   <md-card-title>{{vacancy.title}}</md-card-title>
   <pre>{{vacancy.description}}</pre>
-  <span>Дата создания {{vacancy.date}}</span>
-  <span>Дата редактирования {{vacancy.dateOfEditing}}</span>
+  <span>Дата создания {{vacancy.date | date: 'dd.MM.yyyy'}}</span>
+  <span>Дата редактирования {{vacancy.dateOfEditing | date: 'dd.MM.yyyy'}}</span>
 </md-card>

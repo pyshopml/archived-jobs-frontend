@@ -2,15 +2,15 @@ export class Vacancy {
   public id: number;
   public title: string;
   public description: string;
-  public date: string;
-  public dateOfEditing: string;
+  public date: Date;
+  public dateOfEditing: Date;
 
-  constructor(vacancy) {
+  constructor(vacancy: any) {
     this.id = vacancy.id;
     this.title = vacancy.title;
     this.description = vacancy.description;
-    this.date = this.dateToString(new Date());
-    this.dateOfEditing = this.dateToString(new Date());
+    this.date = new Date();
+    this.dateOfEditing = new Date();
   }
 
   private dateToString(dateObj: Date): string {
